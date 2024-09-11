@@ -25,6 +25,6 @@ jobs:
         script: |
             cd /var/www/wordpress1/
             wp --allow-root db import /var/www/wordpress1.sql && wp --allow-root search-replace 'http://localhost/hakim' 'http://wordpress1.melissapoilane.fr'
-            mysql -u wordpress1 -p${{ secrets.DB_PASSWD }} wordpress1 < /var/www/wordpress1.sql
+            mysql -u wordpress1 -p${{ secrets.DB_PASSWD }} wordpress1 /var/www/wordpress1.sql
             git config --global --add safe.directory /var/www/wordpress1
             git pull 
